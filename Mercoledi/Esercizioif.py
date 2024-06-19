@@ -1,6 +1,6 @@
 
 risposta=""
-
+c=0
 persona={
     "nomeutente": "admin",
     "password": "12345"
@@ -8,14 +8,21 @@ persona={
 
 print(persona.get("nomeutente"))
 print(persona.get("password"))
-nu = input("\nInserisci nome utente: ")
-pw = input("\nInserisci password: ")
 
-if persona["nomeutente"] == nu :
-    if persona["password"] == pw:
+while True:
+    nu = input("\nInserisci nome utente: ")
+    pw = input("\nInserisci password: ")
+    if persona["nomeutente"] == nu :
+     if persona["password"] == pw:
         print("\nBenvenuto campione <3")
-else: 
+        break
+    else: 
        print("\nCredenziali sbagliate")
+    c=c+1
+    if c==3:
+        print("\nERROR ERROR ERROR TROPPI TENTATIVI CHIUSURA FORZATA")
+        exit(1)
+
 
 while True:
     print("\nSeleziona una domanda segreta:")
@@ -54,6 +61,4 @@ while True:
 print("\n Credenziali aggiornate: ")
 print(persona.get("nomeutente"))
 print(persona.get("password"))
-
-
 
