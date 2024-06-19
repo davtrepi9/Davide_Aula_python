@@ -8,19 +8,20 @@ persona={
     "password": password
     }
 c=0
+a=0
 token = True
 
 maglia = {"nome" : "maglia",
           "prezzo" : 15,
-          "qnt" : 2
+          "qnt_disp" : 2
           }
 felpa = {"nome" : "felpa",
           "prezzo" : 20,
-          "qnt" : 1
+          "qnt_disp" : 1
           }
 jeans = {"nome" : "jeans",
           "prezzo" : 35,
-          "qnt" : 5
+          "qnt_disp" : 5
           }
 
 listainv = [maglia,felpa,jeans]
@@ -65,20 +66,23 @@ def cliente():
              elif selection == "2":
                  print(listainv)
                  shop=input("\nQuale prodotto vuoi acquistare ?:")
-                 #NON RIESCO AD AGGIORNARE LA QUANTITA DELLA LISTA ç___ç *sad*
+                 #NON RIESCO AD AGGIORNARE LA QUANTITA DELLA LISTA ç___ç *sad* ------------ FIXATO
                  if shop == "maglia":
-                     qntnuova=maglia["prezzo"] - 1
-                     maglia.update({"qnt": qntnuova })
+                     qntnuova=maglia["qnt_disp"]
+                     qntnuova=qntnuova-1
+                     maglia.update({"qnt_disp": qntnuova })
                      print("Hai acquistato : ")
                      print(listainv[0])
                  elif shop == "felpa":
-                     qntnuova=maglia["prezzo"] - 1
-                     felpa.update({"qnt": qntnuova })
+                     qntnuova=felpa["qnt_disp"]
+                     qntnuova=qntnuova-1
+                     felpa.update({"qnt_disp": qntnuova })
                      print("Hai acquistato : ")
                      print(listainv[1])
                  elif shop == "jeans":
-                     qntnuova=maglia["prezzo"] - 1
-                     jeans.update({"qnt": qntnuova })
+                     qntnuova=jeans["qnt_disp"]
+                     qntnuova=qntnuova-1
+                     jeans.update({"qnt_disp": qntnuova })
                      print("Hai acquistato : ")
                      print(listainv[2])
              elif selection == "3":
@@ -94,7 +98,53 @@ def cliente():
             
 
 def inventario():
-    pass
+    while True:
+        print("\nMenu:")
+        print("1: Visualizza articoli magazzino")
+        print("2: Aggiungi articolo")
+        print("3: Aggiorna articolo")
+        print("4: Rimuovi articolo")
+        print("5: Esci")                
+        selection=input("\n Cosa vuoi fare ?: ")
+        if selection == "1":
+            print(listainv)
+        elif selection == "2":
+            nome=input("Aggiungi nome articolo: ")
+            prezzo=input("Aggiungi prezzo articolo: ")
+            quantita=input("Aggiungi quantita articolo: ")
+
+            nuovoarticolo = {"nome" : nome,
+                     "prezzo" : int(prezzo),
+                     "qnt_disp" : int(quantita)
+           }
+            
+            listainv.append(nuovoarticolo)
+
+        elif selection == "3":
+                    pass
+            #articolomod = input("\nQuale articolo vuoi modificare? ")
+            ## if articolomod == (scorri elementi della lista e fai controllo)
+                    #scelta=input("Cosa vuoi modificare: ")
+
+                    #if scelta == "nome":
+                     #nuovoele=input("Inserisci nuovo nome: ")
+                     #a.update({"nome": nuovoele })
+
+                    #elif scelta == "prezzo":
+                       # nuovoele=input("Inserisci nuovo prezzo: ")
+                        #a.update({"prezzo": nuovoele})
+                    
+                    #elif scelta == "qnt_disp":
+                        #nuovoele=input("Inserisci nuova quantità: ")
+                        #a.update({"qnt_disp": nuovoele})
+           # break
+        
+        elif selection == "5":
+            break
+
+           
+
+            
 
 def amministrazione():
     pass
