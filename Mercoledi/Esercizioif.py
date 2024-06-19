@@ -1,14 +1,15 @@
-
+#variabili
 risposta=""
 c=0
 persona={
     "nomeutente": "admin",
     "password": "12345"
 }
-
+#credenziali iniziali
 print(persona.get("nomeutente"))
 print(persona.get("password"))
 
+#login
 while True:
     nu = input("\nInserisci nome utente: ")
     pw = input("\nInserisci password: ")
@@ -23,7 +24,7 @@ while True:
         print("\nERROR ERROR ERROR TROPPI TENTATIVI CHIUSURA FORZATA")
         exit(1)
 
-
+#domanda segreta
 while True:
     print("\nSeleziona una domanda segreta:")
     print("1: Qual'è il tuo colore preferito?")
@@ -40,7 +41,7 @@ while True:
         risposta = add
         break
   
-
+#modifica dati
 while True:
     print("\nMenu:")
     print("1: Modifica Nome Utente")
@@ -61,4 +62,6 @@ while True:
 print("\n Credenziali aggiornate: ")
 print(persona.get("nomeutente"))
 print(persona.get("password"))
+
+
 
