@@ -37,6 +37,9 @@ while True:
             token=False
          if scelta == "si":
             token=True
+         else: 
+          print("ERROR \n")
+          exit(1)
                
                
     #NUMERO 3  
@@ -44,10 +47,13 @@ while True:
       while True:
         seleziona = input("Vuoi aggiungere un elemento?: ")
         if seleziona == "si":
-         valore4 = int(input("Inserire il numero da inserire: "))
+         valore4 = int(input("Scrivi il numero da inserire: "))
          lista1.append(valore4)
         elif seleziona == "no":
-         break     
+         break
+        else:
+          print("ERROR\n")
+          exit(1)     
       print("Lista creata: ",lista1)
       for i in lista1:
         quadrato=i*i
@@ -59,12 +65,17 @@ while True:
      if seleziona=="4":
         while True:
          seleziona = input("Vuoi aggiungere un elemento?: ")
+
          if seleziona == "si":
-          valore4 = int(input("Inserire il numero da inserire: "))
+          valore4 = int(input("Scrivi il numero da inserire: "))
           lista1.append(valore4)
           contatore=contatore+1
          elif seleziona == "no":
           break
+         else:
+           print("ERROR\n")
+           exit(1)
+
         if len(lista1)==0:
          print("Lista Vuota")
         else: 
