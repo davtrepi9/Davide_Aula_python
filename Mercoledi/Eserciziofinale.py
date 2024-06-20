@@ -7,6 +7,10 @@ persona={
     "nomeutente": username,
     "password": password
     }
+admin={
+    "nomeutente": "admin",
+    "password": "admin"
+}
 c=0
 a=0
 token = True
@@ -35,6 +39,22 @@ def login():
         pw = input("\nInserisci password: ")
         if persona["nomeutente"] == nu :
             if persona["password"] == pw:
+                print("\n Benvenuto!" )
+                return True
+                
+        else:
+            print("\nCredenziali sbagliate")
+            c=+1
+            if c==3:
+                print("\nERROR ERROR ERROR TROPPI TENTATIVI CHIUSURA FORZATA")
+                exit(1)
+
+def loginadm():
+    while True:
+        nu = input("\nInserisci nome utente: ")
+        pw = input("\nInserisci password: ")
+        if admin["nomeutente"] == nu :
+            if admin["password"] == pw:
                 print("\n Benvenuto!" )
                 return True
                 
@@ -102,6 +122,9 @@ def cliente():
             
 
 def inventario():
+
+ if loginadm()==True:
+
     while True:
         print("\nMenu:")
         print("1: Visualizza articoli magazzino")
@@ -153,16 +176,13 @@ def inventario():
         
         elif selection == "5":
             break
+ 
 
 
-                
-                
-
-           
-
-            
+                            
 
 def amministrazione():
+ if loginadm()==True:
     pass
 
 
@@ -203,3 +223,5 @@ else:
 #1) Fix quantità sul primo punto FATTO
 #2) Implementare secondo (riusare parte di codice dal primo punto) , aggiungere modifica e aggiunta di prodotti QUASI FATTO
 #3) Implementare terzo
+
+ 
