@@ -62,11 +62,15 @@ def cliente():
              
              selection=input("\n Cosa vuoi fare ?: ")
              if selection == "1":
-                 print(listainv)
+                 for x in listainv:
+                     print(x)
+
              elif selection == "2":
-                 print(listainv)
+                 for x in listainv:
+                    print(x)
+
                  shop=input("\nQuale prodotto vuoi acquistare ?:")
-                 #NON RIESCO AD AGGIORNARE LA QUANTITA DELLA LISTA ç___ç *sad* ------------ FIXATO
+                 #NON RIESCO AD AGGIORNARE LA QUANTITA DELLA LISTA ç___ç *sad* ------------ FIXATO :D
                  if shop == "maglia":
                      qntnuova=maglia["qnt_disp"]
                      qntnuova=qntnuova-1
@@ -107,7 +111,9 @@ def inventario():
         print("5: Esci")                
         selection=input("\n Cosa vuoi fare ?: ")
         if selection == "1":
-            print(listainv)
+            for x in listainv:
+                print(x)
+
         elif selection == "2":
             nome=input("Aggiungi nome articolo: ")
             prezzo=input("Aggiungi prezzo articolo: ")
@@ -139,8 +145,18 @@ def inventario():
                         #a.update({"qnt_disp": nuovoele})
            # break
         
+        elif selection == "4":
+                print(listainv)
+                cancella=input("Che elemento vuoi cancellare ?: ")
+                
+                #Non riesco a scorrere nella lista composta da dizionari
+        
         elif selection == "5":
             break
+
+
+                
+                
 
            
 
@@ -184,6 +200,6 @@ else:
 
 #Svolto: Login-Registrazione-Primo punto
 #Da Svolgere:
-#1) Fix quantità sul primo punto
-#2) Implementare secondo (riusare parte di codice dal primo punto) , aggiungere modifica e aggiunta di prodotti
+#1) Fix quantità sul primo punto FATTO
+#2) Implementare secondo (riusare parte di codice dal primo punto) , aggiungere modifica e aggiunta di prodotti QUASI FATTO
 #3) Implementare terzo
