@@ -14,7 +14,10 @@ while token:
     if inp.upper()=="ESCI":
      token=False
     elif inp.isdecimal():
-     lista.append(inp)
+     if int(inp)<=0:
+       print("ERROR input not valid ")
+     else:
+      lista.append(int(inp))
     else:
      print("ERROR")
      exit(1)
