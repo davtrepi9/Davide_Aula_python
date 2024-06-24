@@ -8,11 +8,15 @@ while token:
  inp=(input("Inserisci una parola: "))
  lista.append(inp)
  scelta=input("Vuoi continuare?(si/no): ")
+ if scelta=="no":
+  token=False
  if scelta=="si":
   pass
  else:
-  token=False
+  print("ERROR")
+  exit(1)
 
 for x in lista:
  print(len(x))
+
 
