@@ -15,6 +15,6 @@ for x in inp.lower():
     else:
      dizio.setdefault(x, 0)
      dizio[x] = dizio[x] + 1
-
+     print(dizio[x])
 print("Frequenza di comparsa: ")
 print(dizio)
