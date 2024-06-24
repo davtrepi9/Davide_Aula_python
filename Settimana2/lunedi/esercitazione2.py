@@ -14,13 +14,13 @@ while token:
     if inp.upper()=="ESCI":
      token=False
     elif inp.isdecimal():
-     lista.append(int(inp))
+     lista.append(inp)
     else:
      print("ERROR")
      exit(1)
 
 for x in lista:
-  elemento="*"*int((x))
+  elemento="*"*(x)
   istogramma.append(elemento)
 
 print("Istogramma: ")
