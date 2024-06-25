@@ -10,31 +10,23 @@
 #di posti corrispondente alla chiave.
 
 
-def cifratura():
-    token=True
-    while True:
-     key=int(input("Inserisci la chiave di cifratura: "))
-     dacifrare = input("Inserisci il testo da cifrare: ")
+def cifratura(testo,key):
      cifrato = ""
-     for x in dacifrare:
-      cifrato+=chr(ord(x)+key)
-      
-      
+     for x in testo:
+         cifrato += chr((ord(x)+key-97) % 26+97)
      return cifrato
 
-def decifratura():
-    token=True
-    while token:
-        key=int(input("Inserisci la chiave di cifratura: "))
-        if key >= 0 and key <= 26:
-            token=False
-    dacifrare = input("Inserisci il testo da cifrare: ")
-    cifrato = ""
-    for x in dacifrare:
-     cifrato += chr(ord(x)-key)
-    
-    return dacifrare
+def decifratura(testo,key):
+     cifrato = ""
+     for x in testo:
+         cifrato += chr((ord(x)-key-97) % 26+97)
+     return cifrato
    
-   
-print(cifratura())
-print(decifratura())
+key=int(input("Inserisci la chiave di cifratura: "))
+testo = input("Inserisci il testo da cifrare: ")
+value1=cifratura(testo,key)
+print("Criptato: ")
+print(value1)
+print("Decriptato: ")
+print(decifratura(value1,key))
+
