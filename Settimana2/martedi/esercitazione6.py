@@ -9,6 +9,7 @@
 
 def palindromo(inp):
     inversa=inp[::-1]
+    
     return True if inp == inversa else False
 
 def palindromo2(inp):
@@ -21,6 +22,6 @@ def palindromo3(inp):
 
 s=input("Inserisci stringa: ")
 
-print("1: Palindromo: ",palindromo(s.lower()))
-print("2: Palindromo: ",palindromo2(s.lower()))
-print("3: Palindromo: ",palindromo3(s.lower()))
+print("1: Palindromo: ",palindromo(s.lower().replace(" ","")))
+print("2: Palindromo: ",palindromo2(s.lower().replace(" ","")))
+print("3: Palindromo: ",palindromo3(s.lower().replace(" ","")))
