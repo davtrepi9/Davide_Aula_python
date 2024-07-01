@@ -46,20 +46,50 @@ class Ristorante:
     
 #TESTING 
 
-newr=Ristorante("CaboInn","Mexican")
+while True:
+    print("\nMenu:")
+    print("1: Crea ristorante ")
+    print("2: Stampa descrizione ")
+    print("3: Apri ristorante ")
+    print("4: Chiudi ristorante ")
+    print("5: Aggiungi piatto al menu ")
+    print("6: Elimina piatto dal menu ")
+    print("7: Stampa pagina del ristorante ")
+    print("8: Esci")
 
-print(newr.descrivi_ristorante())
+    seleziona=input("Cosa vuoi fare: ")
+    if seleziona.isalpha():
+      print("Errore Input ")
+      break
+    if seleziona.isspace():
+      print("Errore Input ")
 
-print(newr.apri_ristorante())
+    if seleziona=="1":
+     nome=input("Inserisci il nome del ristorante: ")
+     tipocucina=input("Inserisci il tipo di cucina: ")
+     newr=Ristorante(nome,tipocucina)
+    elif seleziona=="2":
+     print(newr.descrivi_ristorante())
+    elif seleziona=="3":
+     print(newr.apri_ristorante())
+    elif seleziona=="4":
+     print(newr.chiudi_ristorante())
+    elif seleziona=="5":
+     piatto=input("Inserisci il piatto da aggiungere: ")
+     costo=input("Inserisci il costo del piatto: ")
+     newr.aggiungi_al_menu(piatto,costo)    
+    elif seleziona=="6":
+     piatto=input("Inserisci il piatto da eliminare: ")
+     costo=input("Inserisci il costo del piatto da eliminare: ")
+     newr.togli_dal_menu(piatto,costo)
+    elif seleziona=="7":
+       print(newr)
+    elif seleziona=="8":
+       break
+    else:
+       pass
 
-print(newr.chiudi_ristorante())
+    
 
-newr.aggiungi_al_menu("Morgan","3")
+    
 
-newr.aggiungi_al_menu("Per","10")
-
-print(newr)
-
-newr.togli_dal_menu("Morgan,3")
-
-print(newr)
