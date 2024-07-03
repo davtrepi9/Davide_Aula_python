@@ -9,8 +9,8 @@ class MembroSquadra:
 
 class Giocatore(MembroSquadra):
     
-    def __init__(self, nome, eta,ruolo,nmaglia,forma):
-        super().__init__(self,nome, eta)
+    def __init__(self,nome, eta,ruolo,nmaglia,forma):
+        super().__init__(nome, eta)
         self.ruolo=ruolo
         self.nmaglia=nmaglia
         self.forma = forma
@@ -69,4 +69,9 @@ membro2=Giocatore("Totti", 45,"attaccante",10,78)
 membro2.gioca_partita()
 membro3=Giocatore("Buffon",45,"portiere",1,29)
 membro3.gioca_partita()
+membro4=Allenatore("Capello",78,20,"tradizionale")
+print(membro4.dirige_allenamento())
+membro4.descrivi()
+membro5=Assistente("Starace",67,"fisioterapista")
+print(membro5.supporta_team())
 
