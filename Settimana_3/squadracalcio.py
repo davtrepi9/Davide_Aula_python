@@ -36,9 +36,9 @@ class Allenatore(MembroSquadra):
 
     def dirige_allenamento(self):
         s = self.stile
-        if str(s).lower == "tradizionale":
+        if str(s).lower() == "tradizionale":
             print(f"Allenamenti duri e fisici, {self.nome} è amante del catenaccio ")
-        elif str(s).lower == "moderno":
+        elif str(s).lower() == "moderno":
             print(f"Allenamenti basati sull'incremento della velocità individuale, {self.nome} è amante del tikitaka")
 
 
@@ -49,11 +49,11 @@ class Assistente(MembroSquadra):
     
     def supporta_team(self):
         sp = self.specializzazione
-        if str(sp).lower == "fisioterapista":
+        if str(sp).lower() == "fisioterapista":
             return f"Forma fisica migliorata"
-        elif str(sp).lower == "analista di gioco":
+        elif str(sp).lower() == "analista di gioco":
             return f"Conoscenza tattica migliorata"
-        elif str(sp).lower == "aiuto portiere":
+        elif str(sp).lower() == "aiuto portiere":
              return f"Overall portiere migliorato"
         
 
@@ -70,8 +70,8 @@ membro2.gioca_partita()
 membro3=Giocatore("Buffon",45,"portiere",1,29)
 membro3.gioca_partita()
 membro4=Allenatore("Capello",78,20,"tradizionale")
-print(membro4.dirige_allenamento())
-membro4.descrivi()
+membro4.dirige_allenamento()
+print(membro4.descrivi())
 membro5=Assistente("Starace",67,"fisioterapista")
 print(membro5.supporta_team())
 
