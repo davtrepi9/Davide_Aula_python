@@ -62,12 +62,20 @@ class GestoreParcoVeicoli:
     def aggiungi_veicolo(self,veicolo):
         self._veicoli.append(veicolo)
 
-    def rimuovi_veicolo(self,veicolo):
-        self._veicoli.remove(veicolo)
-
+    def rimuovi_veicolo(self,marca,modello):
+     for i in self._veicoli:
+        if Veicolo.get_marca(i) == marca and Veicolo.get_modello(i) == modello:
+         self._veicoli.remove(i)
+         return "Veicolo rimosso"
+        else:
+         return "Veicolo non presente"
+        
     def lista_veicoli(self):
         for elemento in self._veicoli:
             print(Veicolo.stampa(elemento))
+
+
+
 
 
 while True:
@@ -108,8 +116,10 @@ while True:
         parco.aggiungi_veicolo(furgoncino)
         parco.aggiungi_veicolo(motorino)
     if seleziona =="6":
-        parco.rimuovi_veicolo(brum)
-        parco.rimuovi_veicolo(motorino)
+        print(parco.rimuovi_veicolo("Ford","Fiesta"))
+        print(parco.rimuovi_veicolo("Ciao","Mamma"))
+        
+       
     if seleziona =="7":
         parco.lista_veicoli()
     if seleziona =="8":
