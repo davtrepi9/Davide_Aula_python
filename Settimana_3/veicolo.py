@@ -16,19 +16,19 @@ class Veicolo:
     def stampa(self):
         return f"Marca: {self._marca} Modello: {self._modello} Anno: {self._anno} Accensione: {self._accensione}"
 
-    def _get_marca(self):
+    def __get_marca(self):
         return self._marca
     
-    def _get_modello(self):
+    def __get_modello(self):
         return self._modello
     
     def __get_anno(self):
         return self._anno
     
-    def _set_modello(self,nuovo):
+    def __set_modello(self,nuovo):
         self._modello=nuovo
 
-    def _set_marca(self,nuovo):
+    def __set_marca(self,nuovo):
         self._marca=nuovo
 
     def __set_anno(self,nuovo):
@@ -78,24 +78,24 @@ class GestoreParcoVeicoli:
     
     def set_veicolo_marca(self,veicolo,nuovo):
         if veicolo in self._veicoli:
-            return Veicolo._set_marca(veicolo,nuovo)
+            return Veicolo.__set_marca(veicolo,nuovo)
         else:
             return "Errore"
     
     def set_veicolo_modello(self,veicolo,nuovo):
         if veicolo in self._veicoli:
-            return Veicolo._set_modello(veicolo,nuovo)
+            return Veicolo.__set_modello(veicolo,nuovo)
         else:
             return "Errore"
         
     def get_veicolo_marca(self,veicolo):
         if veicolo in self._veicoli:
-            return Veicolo._get_marca(veicolo)
+            return Veicolo.__get_marca(veicolo)
         else: return "Veicolo non presente"
     
     def get_veicolo_modello(self,veicolo):
         if veicolo in self._veicoli:
-            return Veicolo._get_modello(veicolo)
+            return Veicolo.__get_modello(veicolo)
         else: return "Veicolo non presente"
 
     
@@ -104,7 +104,7 @@ class GestoreParcoVeicoli:
 
     def rimuovi_veicolo(self,marca,modello):
      for i in self._veicoli:
-        if Veicolo._get_marca(i) == marca and Veicolo._get_modello(i) == modello:
+        if Veicolo.__get_marca(i) == marca and Veicolo.__get_modello(i) == modello:
          self._veicoli.remove(i)
          return "Veicolo rimosso"
         else:
