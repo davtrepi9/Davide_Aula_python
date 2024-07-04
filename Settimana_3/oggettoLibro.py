@@ -1,18 +1,43 @@
 
-class Libro:                         # dichiaro la classe
+class Libro:                        
  
- def __init__(self, titolo,autore,pagine):               # metodo di istanza
-    self.__titolo = titolo
-    self.__autore = autore
-    self.__pagine = pagine
+ def __init__(self, titolo,autore,pagine):               
+    self.titolo = titolo
+    self.autore = autore
+    self.pagine = pagine
    
-    
  def __str__(self):
-    return f'Il libro {self.__titolo} è stato scritto da {self.__autore} e ha {self.__pagine} pagine.'
+   return f"{self.titolo}"
+ 
+ def nomelibro(self):
+    return self.titolo
  
 
+class Biblioteca:
+    
+    listalibri=[]
+    
+    def aggiungi_libro(self,libro):
+     libro = Libro.nomelibro(libro)
+     self.listalibri.append(libro)
 
-nuovolibro = Libro("1984","Orwell","120")
-print(nuovolibro)
+    def stampa_libri(self):
+        for i in self.listalibri:
+           print(i)
+
+
+
+biblio = Biblioteca()
+for i in range(2):
+    titolo = input("Inserisci Titolo: ")
+    autore = input("Inserisci Autore: ")
+    pagine = input("Inserisci Numero pagine: ")
+    nuovolibro = Libro(titolo,autore,pagine)
+    biblio.aggiungi_libro(nuovolibro)
+ 
+
+    
+        
+biblio.stampa_libri()
 
 

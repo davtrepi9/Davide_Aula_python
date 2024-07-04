@@ -53,7 +53,7 @@ class Cavalleria(UnitaMilitare):
 
     def esplora_terreno(self):
         p = input("In che posizione deve esplorare (sud/est/nord/ovest): ")
-        if p.lower() == "sud" or "est" or "nord" or "ovest":
+        if p.lower() == "sud" or p.lower() == "est" or p.lower() == "nord" or p.lower() == "ovest":
          return p,f" {self.muovi()} verso {p}"
         else: print("Errore posizione")
     

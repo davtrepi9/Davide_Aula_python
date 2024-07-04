@@ -1,5 +1,4 @@
 
-
 class Prodotto:                        
  
  def __init__(self, nome,costo_produzione,prezzo_vendita):               
@@ -35,7 +34,7 @@ class Fabbrica:
 
  def aggiungi_prodotto(self,prodotto,quantita):
   prodotto = Prodotto.nomeprodotto(prodotto)
-  self.inventario={prodotto : quantita}
+  self.inventario[prodotto]=quantita
  
  def stampa_inv(self):
    return self.inventario.items()
@@ -74,6 +73,8 @@ newf.aggiungi_prodotto(newp,5)
 print(newf.stampa_inv())
 #Resto prodotto fabbrica
 print(newf.resi_prodotto(newp))
+#Stampo inventario fabbrica
+print(newf.stampa_inv())
 #Vendita prodotto fabbrica
 print(newf.vendi_prodotto(newp))
 #Stampo inventario fabbrica
