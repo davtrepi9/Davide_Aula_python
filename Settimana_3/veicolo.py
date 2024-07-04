@@ -16,11 +16,23 @@ class Veicolo:
     def stampa(self):
         return f"Marca: {self._marca} Modello: {self._modello} Anno: {self._anno} Accensione: {self._accensione}"
 
-    def get_marca(self):
+    def _get_marca(self):
         return self._marca
     
-    def get_modello(self):
+    def _get_modello(self):
         return self._modello
+    
+    def __get_anno(self):
+        return self._anno
+    
+    def _set_modello(self,nuovo):
+        self._modello=nuovo
+
+    def _set_marca(self,nuovo):
+        self._marca=nuovo
+
+    def __set_anno(self,nuovo):
+        self._anno=nuovo
     
 class Auto(Veicolo):
 
@@ -57,6 +69,34 @@ class GestoreParcoVeicoli:
 
     def __init__(self):
         self._veicoli=[]
+    
+
+    def get_veicolo(self,veicolo):
+        if veicolo in self._veicoli:
+            return Veicolo.stampa(veicolo)
+        else: return "Veicolo non presente"
+    
+    def set_veicolo_marca(self,veicolo,nuovo):
+        if veicolo in self._veicoli:
+            return Veicolo._set_marca(veicolo,nuovo)
+        else:
+            return "Errore"
+    
+    def set_veicolo_modello(self,veicolo,nuovo):
+        if veicolo in self._veicoli:
+            return Veicolo._set_modello(veicolo,nuovo)
+        else:
+            return "Errore"
+        
+    def get_veicolo_marca(self,veicolo):
+        if veicolo in self._veicoli:
+            return Veicolo._get_marca(veicolo)
+        else: return "Veicolo non presente"
+    
+    def get_veicolo_modello(self,veicolo):
+        if veicolo in self._veicoli:
+            return Veicolo._get_modello(veicolo)
+        else: return "Veicolo non presente"
 
     
     def aggiungi_veicolo(self,veicolo):
@@ -64,7 +104,7 @@ class GestoreParcoVeicoli:
 
     def rimuovi_veicolo(self,marca,modello):
      for i in self._veicoli:
-        if Veicolo.get_marca(i) == marca and Veicolo.get_modello(i) == modello:
+        if Veicolo._get_marca(i) == marca and Veicolo._get_modello(i) == modello:
          self._veicoli.remove(i)
          return "Veicolo rimosso"
         else:
@@ -77,6 +117,7 @@ class GestoreParcoVeicoli:
 
 
 
+#TESTING COMPLETATO / CREARE MENU CON INPUT UTENTE
 
 while True:
     print("\nMenu:")
@@ -115,11 +156,19 @@ while True:
         parco.aggiungi_veicolo(brum)
         parco.aggiungi_veicolo(furgoncino)
         parco.aggiungi_veicolo(motorino)
+        print(parco.get_veicolo(brum))
     if seleziona =="6":
-        print(parco.rimuovi_veicolo("Ford","Fiesta"))
-        print(parco.rimuovi_veicolo("Ciao","Mamma"))
-        
+        print(parco.get_veicolo_marca(brum))
+        print(parco.get_veicolo_modello(furgoncino))
+
+        parco.set_veicolo_marca(brum,"Porsche")
+        parco.set_veicolo_modello(brum,"DALAILAMA")
+
+        print(parco.get_veicolo(brum))
        
+        print(parco.rimuovi_veicolo("Porsche","DALAILAMA"))
+        print(parco.rimuovi_veicolo("Ciao","Mamma"))
+
     if seleziona =="7":
         parco.lista_veicoli()
     if seleziona =="8":
