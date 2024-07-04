@@ -1,13 +1,14 @@
 
 class Personaggio:
    
-    def __init__(self, username, nome, eta, sesso,corporatura,classe):
+    def __init__(self, username, nome, eta, sesso,corporatura,classe,arma):
         self.__username=username
         self.nome=nome
         self.eta=eta
         self.sesso=sesso
         self.corporatura=corporatura
         self.classe=classe
+        self.arma=arma
     
     def get_nome(self):
         return self.nome
@@ -29,28 +30,27 @@ class Personaggio:
     
 class Mago(Personaggio):
     
-    def __init__(self, username, nome, eta, sesso,corporatura,classe,armamagica):
-        super().__init__(self, username, nome, eta, sesso,corporatura,classe)
-        self.armamagica=armamagica
+    def __init__(self, username, nome, eta, sesso,corporatura,classe,arma):
+        super().__init__(username, nome, eta, sesso,corporatura,classe,arma)
+       
 
     def attacco_speciale(self):
         return f"AVADAKEDAVRA"
 
 class Barbaro(Personaggio):
     
-     def __init__(self, username, nome, eta, sesso,corporatura,classe,armapesante):
-        super().__init__(self, username, nome, eta, sesso,corporatura,classe)
-        self.armapesante=armapesante
-
+     def __init__(self, username, nome, eta, sesso,corporatura,classe,arma):
+        super().__init__(username, nome, eta, sesso,corporatura,classe,arma)
+     
      def attacco_speciale(self):
         return f"VINOOOOOOOOH"
     
 
 class Elfo(Personaggio):
      
-     def __init__(self, username, nome, eta, sesso,corporatura,classe,staffa):
-        super().__init__(self, username, nome, eta, sesso,corporatura,classe)
-        self.staffa=staffa
+     def __init__(self, username, nome, eta, sesso,corporatura,classe,arma):
+        super().__init__(username, nome, eta, sesso,corporatura,classe,arma)
+       
 
      def attacco_speciale(self):
         return f"Visione elfica"
@@ -61,9 +61,9 @@ class Elfo(Personaggio):
 
 class Acerrano(Personaggio):
      
-     def __init__(self, username, nome, eta, sesso,corporatura,classe,ferro):
-        super().__init__(self, username, nome, eta, sesso,corporatura,classe)
-        self.ferro=ferro
+     def __init__(self, username, nome, eta, sesso,corporatura,classe,arma):
+        super().__init__(username, nome, eta, sesso,corporatura,classe,arma)
+       
 
      def attacco_speciale(self):
         return f"Sono di Æcerr"
@@ -76,9 +76,9 @@ class Acerrano(Personaggio):
      
 class ElfoAcerrano (Elfo,Acerrano):
      
-     def __init__(self, username, nome, eta, sesso,corporatura,classe,ferroelfico):
-        super().__init__(self, username, nome, eta, sesso,corporatura,classe)
-        self.ferroelfico=ferroelfico
+     def __init__(self, username, nome, eta, sesso,corporatura,classe,arma):
+        super().__init__(username, nome, eta, sesso,corporatura,classe,arma)
+  
 
      def attacco_speciale(self):
         return f"Sono di Æcerr in pronvincia di Granburrone"
@@ -89,12 +89,11 @@ while True:
         print("\nMenu:")
         print("1: Crea Personaggio ")
         print("2: Visualizza Personaggio")
-        print("3: Spegni veicolo ")
-        print("4: Visualizza veicolo ")
-        print("5: Inserisci veicolo nel Parco ")
-        print("6: Rimuovi veicolo dal Parco")
-        print("7: Lista veicolo dal Parco")
-        print("8: ESCI")
+        print("3: NULL")
+        print("4: NULL ")
+        print("5: Esci ")
+    
+       
         
         #implementa input utente (per ora testo senza)
 
@@ -107,62 +106,36 @@ while True:
 
         if seleziona =="1":
                
-               nuovo_personaggio=""
                input_username = input("Inserisci il tuo username: ")
                input_nome = input("Inserisci il nome del tuo personaggio: ")
                input_eta = input("Inserisci l'età del tuo personaggio: ")
                input_sesso = input("Inserisci il sesso del tuo personaggio: ")
                input_corporatura = input("Inserisci la corporatura del tuo personaggio: ")
-               input_classe=input("Seleziona Classe (Mago | Barbaro | Elfo | Acerrano | Elfo Acerrano) : ")     
-               if input_classe.lower().strip().isalpha()=="mago":
+               input_classe=input("Seleziona Classe (Mago | Barbaro | Elfo | Acerrano | Elfo Acerrano) : ") 
+               classe=input_classe.lower()    
+               if classe.replace(" ","")=="mago":
                    nuovo_personaggio=Mago(input_username,input_nome,input_eta,input_sesso,input_corporatura,input_classe,"Bacchetta")
-               elif input_classe.lower().strip().isalpha()=="barbaro":
+               elif classe.replace(" ","")=="barbaro":
                    nuovo_personaggio=Barbaro(input_username,input_nome,input_eta,input_sesso,input_corporatura,input_classe,"Ascia")
-               elif input_classe.lower().strip().isalpha()=="elfo":
+               elif classe.replace(" ","")=="elfo":
                    nuovo_personaggio=Elfo(input_username,input_nome,input_eta,input_sesso,input_corporatura,input_classe,"Staffa del bosco")
-               elif input_classe.lower().strip().isalpha()=="acerrano":
+               elif classe.replace(" ","")=="acerrano":
                    nuovo_personaggio=Acerrano(input_username,input_nome,input_eta,input_sesso,input_corporatura,input_classe,"Beretta")
-               elif input_classe.lower().strip().isalpha()=="elfoacerrano":
+               elif classe.replace(" ","")=="elfoacerrano":
                    nuovo_personaggio=ElfoAcerrano(input_username,input_nome,input_eta,input_sesso,input_corporatura,input_classe,"Beretta magica")
-                   print(nuovo_personaggio.nome)
                else: print("Errore")
         if seleziona =="2":
+            print(Personaggio.visualizza_personaggio(nuovo_personaggio))
+        if seleziona =="3":
             pass
+        if seleziona =="4":
+            pass
+        if seleziona =="5":
+            break
 
                 
 
 
            
 
-
-
-        """
-        if seleziona =="2":
-
-            brum.spegni()
-        if seleziona =="4":
-            print(brum.stampa())
-            furgoncino.stampa()
-        if seleziona =="5":
-            parco=GestoreParcoVeicoli()
-            parco.aggiungi_veicolo(brum)
-            parco.aggiungi_veicolo(furgoncino)
-            parco.aggiungi_veicolo(motorino)
-            print(parco.get_veicolo(brum))
-        if seleziona =="6":
-            print(parco.get_veicolo_marca(brum))
-            print(parco.get_veicolo_modello(furgoncino))
-
-            parco.set_veicolo_marca(brum,"Porsche")
-            parco.set_veicolo_modello(brum,"DALAILAMA")
-
-            print(parco.get_veicolo(brum))
-        
-            print(parco.rimuovi_veicolo("Porsche","DALAILAMA"))
-            print(parco.rimuovi_veicolo("Ciao","Mamma"))
-
-        if seleziona =="7":
-            parco.lista_veicoli()
-        if seleziona =="8":
-        break"""
 
