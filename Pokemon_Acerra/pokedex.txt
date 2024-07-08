@@ -1,0 +1,4 @@
+001 Bulbasaur Erba/Veleno Seme Erbaiuto/Clorofilla
+002 Charmander Fuoco Lucertola Aiutofuoco/Solarpotere
+003 Squirtle Acqua Tartaghina Acquaiuto/Copripioggia
+004 Pikachu Elettro Topo Parafulmine/Statico
