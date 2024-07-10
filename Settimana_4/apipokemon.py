@@ -29,7 +29,6 @@ def stampa_pokedex(db):
 
 
             print(f"Pagina pokedex:" )
-            #ESTRAGGO DA DB -> HOURLY -> TEMPERATURA_2M o WINDSPEED o PRECIPITATION -> e come indice ORA(elemento che itero)
             print(f"    Nome: \t{db['name']}")
             print(f"    ID: \t{db['order']}")
             print(f"    Abilità: ")
