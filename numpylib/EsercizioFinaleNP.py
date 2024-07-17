@@ -1,3 +1,5 @@
+#REALIZZATO CON AMALIA CHIARIELLO 
+
 """
 Parte UNO: Scrivere un Sistema che utilizza NumPy per gestire una matrice 2D. 
 Il programma deve presentare un menu interattivo che consente all'utente di eseguire varie operazioni sulla matrice. 
